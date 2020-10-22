@@ -25,7 +25,6 @@ const Nav = styled.nav`
     display: flex;
     > li {
       width: 33.3333%;
-      border: 1px solid red;
       text-align:center;
       padding: 16px;
     }
