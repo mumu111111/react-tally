@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 
+require('icons/tag.svg');
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -55,6 +56,9 @@ function App() {
         <Nav>
           <ul>
             <li>
+              <svg className="icon">
+                <use xlink:href="#tag" />
+              </svg>
               <Link to="/tags">标签页</Link>
             </li>
             <li>
