@@ -56,9 +56,9 @@ function App() {
         <Nav>
           <ul>
             <li>
-              <svg className="icon">
+              {/* <svg className="icon">
                 <use xlink:href="#tag" />
-              </svg>
+              </svg> */}
               <Link to="/tags">标签页</Link>
             </li>
             <li>
