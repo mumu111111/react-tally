@@ -7,7 +7,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import styled from 'styled-components';
-
+import Nav from './components/Nav';
 require('icons/tag.svg');
 
 const Wrapper = styled.div`
@@ -20,17 +20,17 @@ const Main = styled.div`
   overflow: auto;  
 `
 
-const Nav = styled.nav`
-  border: 1px solid #000;
-  > ul {
-    display: flex;
-    > li {
-      width: 33.3333%;
-      text-align:center;
-      padding: 16px;
-    }
-  }  
-`
+// const Nav = styled.nav`
+//   border: 1px solid #000;
+//   > ul {
+//     display: flex;
+//     > li {
+//       width: 33.3333%;
+//       text-align:center;
+//       padding: 16px;
+//     }
+//   }  
+// `
 
 function App() {
   return (
@@ -53,12 +53,9 @@ function App() {
             </Route>
           </Switch>
         </Main>
-        <Nav>
+        {/* <Nav>
           <ul>
             <li>
-              {/* <svg className="icon">
-                <use xlink:href="#tag" />
-              </svg> */}
               <Link to="/tags">标签页</Link>
             </li>
             <li>
@@ -68,8 +65,8 @@ function App() {
               <Link to="/statistics">统计页</Link>
             </li>
           </ul>
-        </Nav>
-
+        </Nav> */}
+        <Nav />
 
 
       </Wrapper>
