@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import React from 'react';
-
-// require('icons/tag.svg');
-// require('icons/money.svg');
-// require('icons/chart.svg');
-
 import Icon from './Icon'
 
 const NavWrapper = styled.nav`
