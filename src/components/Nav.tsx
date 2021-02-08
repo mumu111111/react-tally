@@ -12,7 +12,7 @@ const NavWrapper = styled.nav`
   > ul {
     display: flex;
     > li {
-       width: 31%;
+       width: 33.33%;
        text-align: center; 
        /* padding: 16px;  */
        display: flex;
@@ -20,8 +20,6 @@ const NavWrapper = styled.nav`
       /* padding: 4px 0; */
       justify-content: center;
       align-items: center;
-
-
       .icon {
           width: 24px;
           height: 24px;
