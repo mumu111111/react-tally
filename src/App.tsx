@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './components/Nav';
-require('icons/tag.svg');
+
 
 const Wrapper = styled.div`
   height: 100vh;
