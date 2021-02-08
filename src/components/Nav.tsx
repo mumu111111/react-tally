@@ -12,9 +12,20 @@ const NavWrapper = styled.nav`
   > ul {
     display: flex;
     > li {
-      width: 33.3333%;
-      text-align:center;
-      padding: 16px;
+       width: 31%;
+       text-align: center; 
+       /* padding: 16px;  */
+       display: flex;
+      flex-direction: column;
+      /* padding: 4px 0; */
+      justify-content: center;
+      align-items: center;
+
+
+      .icon {
+          width: 24px;
+          height: 24px;
+      }  
     }
   }  
 `;
