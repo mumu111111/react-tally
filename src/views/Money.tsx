@@ -22,7 +22,9 @@ function Money() {
                     <li>收入</li>
                 </ul>
             </CategorySection>
+
             {/* 标签 */}
+
             <TagsSection>
                 <ol>
                     <li>衣</li>
@@ -32,6 +34,8 @@ function Money() {
                 </ol>
                 <button>新增标签</button>
             </TagsSection>
+
+
             {/* 备注 */}
             <NotesSection>
                 <label>
