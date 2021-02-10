@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const TagsSection = styled.section`
     background: #FFFFFF; padding: 12px 16px;
+    flex-grow: 1; display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: flex-start;
     > ol { margin: 0 -12px;
         > li{
         background: #D9D9D9; border-radius: 18px;
@@ -31,7 +33,7 @@ const NotesSection = styled.section`
         }
         > input {
             display: block;
-            width: 1000%;
+            width: 100%;
             height: 72px;
             background: none;
             border: none;
@@ -117,10 +119,17 @@ const NumberPadSection = styled.section`
     }
 
 `
+// 继承
+const MyLayout = styled(Layout)`
+    display: flex;
+    flex-direction: column
+`
+
+
+
 function Money() {
     return (
-        <Layout>
-            <h2>记账</h2>
+        <MyLayout>
             <CategorySection>
                 <ul>
                     <li className="selected">支出</li>
@@ -166,7 +175,7 @@ function Money() {
                     <button className="dot">.</button>
                 </div>
             </NumberPadSection>
-        </Layout>
+        </MyLayout>
     )
 }
 
