@@ -24,27 +24,9 @@ function Money() {
             </CategorySection>
 
             {/* 标签 */}
-
-            <TagsSection>
-                <ol>
-                    <li>衣</li>
-                    <li>食</li>
-                    <li>行</li>
-                    <li>住</li>
-                </ol>
-                <button>新增标签</button>
-            </TagsSection>
-
-
+            <TagsSection />
             {/* 备注 */}
-            <NotesSection>
-                <label>
-                    <span>备注</span>
-                    <input type="text" placeholder="添加备注" />
-                </label>
-            </NotesSection>
-            {/* 切换项 */}
-
+            <NotesSection />
             {/* 计算器 */}
             <NumberPadSection>
                 <div className="output">100</div>
