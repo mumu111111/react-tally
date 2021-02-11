@@ -1,4 +1,3 @@
-import { Console } from 'console';
 import React, { useState } from 'react';
 
 import styled from 'styled-components';
@@ -61,7 +60,16 @@ const Wrapper = styled.section`
 
 
 const NumberPadSection: React.FC = () => {
-    const [output, setOutput] = useState('0')
+    const [output, _setOutput] = useState('0')
+    // 两种情况下 显示的output 
+    const setOutput = (output: string) => {
+        if (output.length > 16) {
+            output = output.slice(0, 16)
+        } else if (output.length === 0) {  // 没有数字时 为0 
+            output = '0'
+        }
+        _setOutput(output)
+    }
     const onClickButtonWrapper = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
         if (text == null) { return; }
@@ -76,18 +84,26 @@ const NumberPadSection: React.FC = () => {
             case '7':
             case '8':
             case '9':
-            case '.':
+
                 if (output === '0') {
                     setOutput(text)
                 } else {
                     setOutput(output + text)
                 }
                 break;
+            case '.':
+                if (output.indexOf('.') >= 0) { return; }  // 避免出现重复.
+                setOutput(output + '.')  // 当前值 加 .
+                break;
             case '删除':
-                console.log('删除')
+                if (output.length === 1) {
+                    setOutput('')
+                } else {
+                    setOutput(output.slice(0, -1))
+                }
                 break;
             case '清空':
-                console.log('清空')
+                setOutput('')
                 break;
             case 'OK':
                 console.log('确定')
