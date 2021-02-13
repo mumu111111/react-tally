@@ -49,7 +49,14 @@ function Money() {
                 onChange={(tags) => setSelected({ ...selected, tags: tags })}
             />
             {/* 备注 */}
-            <NotesSection />
+            <NotesSection value={selected.note}
+                onChange={(note) => {
+                    setSelected({
+                        ...selected,
+                        note: note
+                    })
+                }}
+            />
             {/* 计算器 */}
             <NumberPadSection />
         </MyLayout>
