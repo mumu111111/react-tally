@@ -27,10 +27,14 @@ justify-content: flex-end; align-items: flex-start;
 `
 
 
-
-const TagsSection: React.FC = (props) => {
+type Props = {
+    value: string[];
+    onChange: (selected: string[]) => void;
+}
+const TagsSection: React.FC<Props> = (props) => {
     const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-    const [selectedTags, setSelectedTags] = useState<string[]>([]); //可被选的tags 不包含选中项
+    // const [selectedTags, setSelectedTags] = useState<string[]>([]); //可被选的tags 不包含选中项
+    const selectedTags = props.value;
     const onAddTag = () => {
         const tagName = window.prompt('新标签的名称为')
         if (tagName !== null) {
@@ -41,9 +45,9 @@ const TagsSection: React.FC = (props) => {
     const onToggleTag = (tag: string) => {
         const index = selectedTags.indexOf(tag);  //下标
         if (index > 0) { //不等于-1  就是没有不选中的情况 
-            setSelectedTags(selectedTags.filter(t => t !== tag))
+            props.onChange(selectedTags.filter(t => t !== tag))
         } else {
-            setSelectedTags([...selectedTags, tag])
+            props.onChange([...selectedTags, tag])
         }
 
     }
