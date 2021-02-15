@@ -58,7 +58,15 @@ function Money() {
                 }}
             />
             {/* 计算器 */}
-            <NumberPadSection />
+            <NumberPadSection
+                value={selected.amount}
+                onChange={(amount) => {
+                    setSelected({
+                        ...selected,
+                        amount: amount
+                    })
+                }}
+            />
         </MyLayout>
     )
 }

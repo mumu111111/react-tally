@@ -23,7 +23,7 @@ const Wrapper = styled.section`
     }
 `
 type Props = {
-    value: string[];
+    value: string;
     onChange: (value: string) => void;
 }
 const NotesSection: React.FC<Props> = (props) => {
