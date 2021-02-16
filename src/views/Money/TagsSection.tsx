@@ -1,6 +1,7 @@
 
 import styled from 'styled-components';
 import React, { useState } from 'react';
+import { useTags } from 'useTags';
 
 
 
@@ -32,7 +33,7 @@ type Props = {
     onChange: (selected: string[]) => void;
 }
 const TagsSection: React.FC<Props> = (props) => {
-    const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+    const { tags, setTags } = useTags();
     // const [selectedTags, setSelectedTags] = useState<string[]>([]); //可被选的tags 不包含选中项
     const selectedTags = props.value;
     const onAddTag = () => {
