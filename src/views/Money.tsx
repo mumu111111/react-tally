@@ -14,13 +14,6 @@ const MyLayout = styled(Layout)`
 `
 type Category = '+' | '-'
 
-
-
-
-
-
-
-
 function Money() {
     //数据源
     const [selected, setSelected] = useState({
@@ -41,9 +34,15 @@ function Money() {
             {selected.note}
             {selected.category}
             {selected.amount}
+            <CategorySection value={selected.category}
+                onChange={(category) => {
+                    setSelected({
+                        ...selected,
+                        category: category
+                    });
+                }}
+            />
 
-
-            <CategorySection />
             {/* 标签 */}
             <TagsSection value={selected.tags}
                 onChange={(tags) => setSelected({ ...selected, tags: tags })}
