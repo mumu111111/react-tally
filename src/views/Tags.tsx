@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTags } from 'useTags';
-
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 function Tags() {
@@ -10,7 +10,11 @@ function Tags() {
         <Layout>
             <ol>
                 {tags.map(tag =>
-                    <li key={tag}>{tag}</li>
+                    <li key={tag}>
+                        <Link to={'/tags/' + tag}>
+                            {tag}
+                        </Link>
+                    </li>
                 )}
             </ol>
         </Layout>
