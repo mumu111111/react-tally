@@ -17,13 +17,10 @@ type Category = '+' | '-'
 function Money() {
     //数据源
     const [selected, setSelected] = useState({
-
-
-        tags: [] as string[],
+        tagIds: [] as number[],
         note: '',
         category: '-' as Category,
         amount: 0
-
     })
 
     const onChange = (obj: Partial<typeof selected>) => {
@@ -32,14 +29,13 @@ function Money() {
 
     return (
         <MyLayout>
-
             <CategorySection value={selected.category}
                 onChange={(category) => onChange({ category })}
             />
 
             {/* 标签 */}
-            <TagsSection value={selected.tags}
-                onChange={(tags) => onChange({ tags })}
+            <TagsSection value={selected.tagIds}
+                onChange={(tagIds) => onChange({ tagIds })}
             />
             {/* 备注 */}
             <NotesSection value={selected.note}

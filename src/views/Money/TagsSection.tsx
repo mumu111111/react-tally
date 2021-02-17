@@ -29,31 +29,31 @@ justify-content: flex-end; align-items: flex-start;
 
 
 type Props = {
-    value: string[];
-    onChange: (selected: string[]) => void;
+    value: number[];
+    onChange: (selected: number[]) => void;
 }
 const TagsSection: React.FC<Props> = (props) => {
     const { tags, setTags } = useTags();
     // const [selectedTags, setSelectedTags] = useState<string[]>([]); //可被选的tags 不包含选中项
-    const selectedTags = props.value;
+    const selectedTagIds = props.value;
     const onAddTag = () => {
         const tagName = window.prompt('新标签的名称为')
         if (tagName !== null) {
-            setTags([...tags, tagName])
+            setTags([...tags, { id: Math.random(), name: tagName }])
         }
     }
 
-    const onToggleTag = (tag: string) => {
-        const index = selectedTags.indexOf(tag);  //下标
+    const onToggleTag = (tagId: number) => {
+        const index = selectedTagIds.indexOf(tagId);  //下标
         if (index > 0) { //不等于-1  就是没有不选中的情况 
-            props.onChange(selectedTags.filter(t => t !== tag))
+            props.onChange(selectedTagIds.filter(t => t !== tagId))
         } else {
-            props.onChange([...selectedTags, tag])
+            props.onChange([...selectedTagIds, tagId])
         }
 
     }
 
-    const getClass = (tag: string) => selectedTags.indexOf(tag) >= 0 ? 'selected' : '';
+    const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
 
 
 
@@ -67,10 +67,10 @@ const TagsSection: React.FC<Props> = (props) => {
 
 
                 {tags.map(tag =>
-                    <li key={tag} onClick={
-                        () => { onToggleTag(tag); }
-                    } className={getClass(tag)}
-                    >{tag}</li>
+                    <li key={tag.id} onClick={
+                        () => { onToggleTag(tag.id); }
+                    } className={getClass(tag.id)}
+                    >{tag.name}</li>
                 )}
             </ol>
             <button onClick={onAddTag}>新增标签</button>

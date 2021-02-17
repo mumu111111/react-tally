@@ -10,9 +10,9 @@ function Tags() {
         <Layout>
             <ol>
                 {tags.map(tag =>
-                    <li key={tag}>
+                    <li key={tag.id}>
                         <Link to={'/tags/' + tag}>
-                            {tag}
+                            {tag.name}
                         </Link>
                     </li>
                 )}
