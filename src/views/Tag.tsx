@@ -6,6 +6,9 @@ import Layout from 'components/Layout';
 import Icon from 'components/Icon';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input'
+import { Center } from 'components/Center'
+import { Space } from 'components/Space'
+
 import styled from 'styled-components';
 const Topbar = styled.header`
   display:flex;
@@ -21,6 +24,7 @@ const InputWrapper = styled.div`
   padding: 0 16px;
   margin-top: 8px;
 `;
+
 
 type Params = {
     id: string
@@ -40,9 +44,12 @@ const Tag: React.FC = (props) => {
             <InputWrapper>
                 <Input label="标签名" type="text" placeholder="标签名" value={tag.name}></Input>
             </InputWrapper>
-            <div>
+            <Center>
+                <Space />
+                <Space />
+                <Space />
                 <Button>删除标签</Button>
-            </div>
+            </Center>
         </Layout>
     );
 };
