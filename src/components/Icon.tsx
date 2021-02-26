@@ -9,7 +9,7 @@ try {
 // 判断icon是否存在
 type Props = {
     name?: string
-}
+} & React.SVGAttributes<SVGElement>
 
 function Icon(props: Props) {
     return (

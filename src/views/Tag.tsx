@@ -1,7 +1,7 @@
 import { FORMERR } from 'dns';
 import React from 'react';
 import { useTags } from '../useTags'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
 import { Button } from 'components/Button';
@@ -34,18 +34,12 @@ const Tag: React.FC = (props) => {
     let { id: idString } = useParams<Params>() // 获取router id
     const tag = findTag(parseInt(idString))
     console.log('tag', tag)
-    // const tagContent = (tag: { id: number, name: string }) => {
-    //     return (
-    //         <Layout>
-    //             <Topbar>
-    //                 <Icon name="left" />
-    //                 <span>编辑标签</span>
-    //                 <Icon />
-    //             </Topbar>
-    //             {tag ? tagContent(tag) : <Center>tag 不存在</Center>}
-    //         </Layout>
-    //     )
-    // }
+
+    //  回退
+    const history = useHistory()
+    const onClickBack = () => {
+        history.goBack()
+    }
     const tagContent = (tag: { id: number; name: string }) => (
         <div>
             <InputWrapper>
@@ -69,7 +63,8 @@ const Tag: React.FC = (props) => {
     return (
         <Layout>
             <Topbar>
-                <Icon name="left" />
+                <span onClick={() => onClickBack()}>fff</span>
+                {/* <Icon name="left" onClick={() => onClickBack()} /> */}
                 <span>编辑标签</span>
                 <Icon />
             </Topbar>
