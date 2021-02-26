@@ -13,7 +13,32 @@ const useTags = () => {
     // }
     // const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
-    return { tags, setTags, findTag };
+
+    //  获取下标
+    const findTagIndex = (id: number) => {
+        let result = -1
+        for (let i = 0; i < tags.length; i++) {
+            if (tags[i].id == id) {
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+
+
+
+
+
+    const updateTag = (id: number, obj: { name: string }) => {
+        const index = findTagIndex(id)
+        // 深拷贝tags
+        const tagsClone = JSON.parse(JSON.stringify(tags))
+        // 删除 第index 换成 {id, name}
+        tagsClone.splice(index, 1, { id: id, name: obj.name })
+        setTags(tagsClone)
+    }
+    return { tags, setTags, findTag, updateTag, findTagIndex };
 };
 
 export { useTags };
