@@ -1,6 +1,6 @@
 import { FORMERR } from 'dns';
 import React from 'react';
-import { useTags } from '../useTags'
+import { useTags } from '../hooks/useTags'
 import { useHistory, useParams } from 'react-router-dom'
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
