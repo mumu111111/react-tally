@@ -29,13 +29,15 @@ function Money() {
         setSelected({ ...selected, ...obj });
     };
     const submit = () => {
-        addRecord(selected)
-        alert('保存成功')
-        setSelected(defaultFormData)
+        if (addRecord(selected)) {
+            alert('保存成功')
+            setSelected(defaultFormData)
+        }
     }
 
     return (
         <MyLayout>
+            {JSON.stringify(selected)}
             <CategorySection value={selected.category}
                 onChange={(category) => onChange({ category })}
             />
